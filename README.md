@@ -583,6 +583,9 @@ await sock.sendMessage(
 )
 ```
 
+</div>
+</details>
+
 For more examples and detailed documentation, see the full documentation in the repository.
 
 ## License
