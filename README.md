@@ -1,22 +1,12 @@
-# Ye-bail
+# ye-bail
 
-[![npm version](https://img.shields.io/npm/v/ye-bail.svg)](https://www.npmjs.com/package/ye-bail)
 [![License](https://img.shields.io/badge/license-GPL%203-blue.svg)](LICENSE)
-[![Downloads](https://img.shields.io/npm/dm/ye-bail.svg)](https://www.npmjs.com/package/ye-bail)
-
-## Main Features
-
-- **Modern & Fast** - Built with TypeScript and latest technologies
-- **@lid & @jid Fix** - Fixes @lid to @pn issues in WhatsApp groups
-- **Multi-Device Support** - Supports WhatsApp multi-device connections
-- **End-to-End Encryption** - Full encrypted communication
-- **All Message Types** - Supports text, media, polling, etc.
 
 ## Warning
 
 This project is not affiliated, associated, authorized, endorsed by, or in any way officially connected with WhatsApp or any of its subsidiaries. The official WhatsApp website is at whatsapp.com.
 
-The maintainers of Ye-bail do not support the use of this application to violate WhatsApp's Terms of Service. We emphasize personal responsibility for users to use fairly and responsibly.
+The maintainers of ye-bail do not support the use of this application to violate WhatsApp's Terms of Service. We emphasize personal responsibility for users to use fairly and responsibly.
 
 Use wisely. Avoid spam. Do not use excessive automation.
 
@@ -25,22 +15,21 @@ Use wisely. Avoid spam. Do not use excessive automation.
 ### Stable Version (Recommended)
 
 ```bash
-npm i ye-bail
+npm i github:yemobyte/ye-bail
 ```
 
 ### Edge Version (Latest Features)
 
 ```bash
-npm i ye-bail@latest
+npm i github:yemobyte/ye-bail
 # or
-yarn add ye-bail@latest
+yarn add github:yemobyte/ye-bail
 ```
 
 ### Import in Code
 
 ```javascript
 const { default: makeWASocket } = require("ye-bail")
-// or ES6
 import makeWASocket from "ye-bail"
 ```
 
@@ -58,7 +47,7 @@ async function connectToWhatsApp() {
     const sock = makeWASocket({
         auth: state,
         printQRInTerminal: true,
-        browser: ['Ye-bail', 'Desktop', '3.0']
+        browser: ['ye-bail', 'Desktop', '3.0']
     })
 
     sock.ev.on('connection.update', (update) => {
@@ -81,7 +70,7 @@ async function connectToWhatsApp() {
             console.log('New message:', JSON.stringify(m, undefined, 2))
             
             await sock.sendMessage(m.key.remoteJid!, { 
-                text: 'Hello! I am a WhatsApp bot using Ye-bail' 
+                text: 'Hello! I am a WhatsApp bot using ye-bail' 
             })
         }
     })
@@ -98,7 +87,7 @@ Disclaimer: This documentation is still in beta, so there may be errors or incon
 
 ## Account Connection
 
-WhatsApp provides a multi-device API that allows Ye-bail to authenticate as a secondary WhatsApp client via QR code or pairing code.
+WhatsApp provides a multi-device API that allows ye-bail to authenticate as a secondary WhatsApp client via QR code or pairing code.
 
 ### Connect with QR Code
 
@@ -140,7 +129,7 @@ if (!sock.authState.creds.registered) {
 ### Receive Full History
 
 1. Set `syncFullHistory` to `true`.
-2. By default, Ye-bail uses Chrome configuration. For desktop-like connection (for more message history), use:
+2. By default, ye-bail uses Chrome configuration. For desktop-like connection (for more message history), use:
 
 ```javascript
 const { default: makeWASocket, Browsers } = require("ye-bail")
@@ -253,5 +242,5 @@ Distributed under the GPL-3.0 License. See [LICENSE](LICENSE) for more informati
 
 <div align="center">
   Forked and modified by yemobyte.  
-  Ye-bail - Modern WhatsApp Web API with @lid to @pn Fix
+  ye-bail - Modern WhatsApp Web API
 </div>
