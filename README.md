@@ -220,6 +220,17 @@ await sock.sendMessage(jid, { text: 'hello world' })
 await sock.sendMessage(jid, { text: 'Hello World', ai: true })
 ```
 
+<details>
+<summary style="font-weight: bold; cursor: pointer; padding: 8px; border-bottom: 1px solid #eee; margin-bottom: 5px;">Show AI Icon Example</summary>
+<div style="padding: 10px 15px; background: #f9f9f9; border: 1px solid #eee; border-top: none; border-radius: 0 0 5px 5px;">
+
+```javascript
+await sock.sendMessage(jid, { text: "Hello World", ai: true });
+```
+
+</div>
+</details>
+
 ### Quoted Message
 
 ```javascript
