@@ -214,6 +214,12 @@ Send all types of messages with one function.
 await sock.sendMessage(jid, { text: 'hello world' })
 ```
 
+### Text Message with AI Icon
+
+```javascript
+await sock.sendMessage(jid, { text: 'Hello World', ai: true })
+```
+
 ### Quoted Message
 
 ```javascript
@@ -230,6 +236,10 @@ await sock.sendMessage(jid, {
 ```
 
 ### Interactive Buttons Message
+
+<details>
+<summary style="font-weight: bold; cursor: pointer; padding: 8px; border-bottom: 1px solid #eee; margin-bottom: 5px;">Show Example</summary>
+<div style="padding: 10px 15px; background: #f9f9f9; border: 1px solid #eee; border-top: none; border-radius: 0 0 5px 5px;">
 
 ```javascript
 await sock.sendMessage(
@@ -384,7 +394,15 @@ await sock.sendMessage(
 )
 ```
 
+</div>
+</details>
+
 ### Interactive Buttons with Image
+
+<details>
+<summary style="font-weight: bold; cursor: pointer; padding: 8px; border-bottom: 1px solid #eee; margin-bottom: 5px;">Show Example</summary>
+<div style="padding: 10px 15px; background: #f9f9f9; border: 1px solid #eee; border-top: none; border-radius: 0 0 5px 5px;">
+
 
 ```javascript
 await sock.sendMessage(
@@ -411,7 +429,15 @@ await sock.sendMessage(
 )
 ```
 
+</div>
+</details>
+
 ### Interactive Buttons with Video
+
+<details>
+<summary style="font-weight: bold; cursor: pointer; padding: 8px; border-bottom: 1px solid #eee; margin-bottom: 5px;">Show Example</summary>
+<div style="padding: 10px 15px; background: #f9f9f9; border: 1px solid #eee; border-top: none; border-radius: 0 0 5px 5px;">
+
 
 ```javascript
 await sock.sendMessage(
@@ -438,7 +464,15 @@ await sock.sendMessage(
 )
 ```
 
+</div>
+</details>
+
 ### Interactive Buttons with Document
+
+<details>
+<summary style="font-weight: bold; cursor: pointer; padding: 8px; border-bottom: 1px solid #eee; margin-bottom: 5px;">Show Example</summary>
+<div style="padding: 10px 15px; background: #f9f9f9; border: 1px solid #eee; border-top: none; border-radius: 0 0 5px 5px;">
+
 
 ```javascript
 await sock.sendMessage(
@@ -466,7 +500,15 @@ await sock.sendMessage(
 )
 ```
 
+</div>
+</details>
+
 ### Interactive Buttons with Location
+
+<details>
+<summary style="font-weight: bold; cursor: pointer; padding: 8px; border-bottom: 1px solid #eee; margin-bottom: 5px;">Show Example</summary>
+<div style="padding: 10px 15px; background: #f9f9f9; border: 1px solid #eee; border-top: none; border-radius: 0 0 5px 5px;">
+
 
 ```javascript
 await sock.sendMessage(
@@ -495,7 +537,15 @@ await sock.sendMessage(
 )
 ```
 
+</div>
+</details>
+
 ### Interactive Buttons with Product
+
+<details>
+<summary style="font-weight: bold; cursor: pointer; padding: 8px; border-bottom: 1px solid #eee; margin-bottom: 5px;">Show Example</summary>
+<div style="padding: 10px 15px; background: #f9f9f9; border: 1px solid #eee; border-top: none; border-radius: 0 0 5px 5px;">
+
 
 ```javascript
 await sock.sendMessage(
