@@ -1,4 +1,3 @@
-[![License](https://img.shields.io/badge/license-GPL%203-blue.svg)](LICENSE)
 
 ## Warning
 
@@ -228,6 +227,71 @@ await sock.sendMessage(jid, {
     image: { url: './image.png' },
     caption: 'hello world'
 })
+```
+
+### Interactive Buttons Message
+
+```javascript
+await sock.sendMessage(
+    jid,
+    {
+        text: 'This is an Interactive message!',
+        title: 'Hiii',
+        subtitle: 'There is a subtitle', 
+        footer: 'Hello World!',
+        interactiveButtons: [
+            {
+                name: 'quick_reply',
+                buttonParamsJson: JSON.stringify({
+                    display_text: 'Click Me!',
+                    id: 'your_id'
+                })
+            },
+            {
+                name: 'cta_url',
+                buttonParamsJson: JSON.stringify({
+                    display_text: 'Follow Me',
+                    url: 'https://whatsapp.com/channel/0029Vag9VSI2ZjCocqa2lB1y',
+                    merchant_url: 'https://whatsapp.com/channel/0029Vag9VSI2ZjCocqa2lB1y'
+                })
+            },
+            {
+                name: 'cta_call',
+                buttonParamsJson: JSON.stringify({
+                    display_text: 'Call Me!',
+                    phone_number: '6299999999999'
+                })
+            }
+        ]
+    }
+)
+```
+
+### Interactive Buttons with Media
+
+```javascript
+await sock.sendMessage(
+    jid, 
+    {
+       image: { 
+          url: 'https://example.jpg' 
+       },
+       caption: 'Body',
+       title: 'Title',
+       subtitle: 'Subtitle', 
+       footer: 'Footer',
+       interactiveButtons: [
+           {
+               name: 'quick_reply',
+               buttonParamsJson: JSON.stringify({
+                   display_text: 'DisplayText',
+                   id: 'ID1'
+               })
+           }
+       ], 
+       hasMediaAttachment: true
+    }
+)
 ```
 
 For more examples and detailed documentation, see the full documentation in the repository.
