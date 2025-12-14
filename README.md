@@ -250,6 +250,7 @@ await sock.newsletterUpdatePicture(newsletterJid, { url: './image.jpg' })
 await sock.newsletterReactionMode(newsletterJid, 'ALL')
 
 const messages = await sock.newsletterFetchMessages('jid', newsletterJid, 10, 100)
+const messagesWithSince = await sock.newsletterFetchMessages('invite', '0029Vb7MpjO9RZAXcgJe0n0W', 10, 100, Date.now())
 const updates = await sock.newsletterFetchUpdates(newsletterJid, 10, 100, 0)
 
 await sock.newsletterPromote(newsletterJid, 'user_lid')
@@ -259,6 +260,7 @@ const subscribers = await sock.newsletterSubscribers(newsletterJid)
 
 await sock.newsletterReactMessage(newsletterJid, 'server_id', '👍')
 await sock.newsletterDelete(newsletterJid)
+await sock.newsletterChangeOwner(newsletterJid, 'user_lid')
 
 const channelInfo = await sock.newsletterId('https://whatsapp.com/channel/0029Vb7MpjO9RZAXcgJe0n0W')
 console.log(channelInfo)
@@ -780,7 +782,8 @@ Fetch messages from a newsletter:
 <div style="padding: 10px 15px; background: #f9f9f9; border: 1px solid #eee; border-top: none; border-radius: 0 0 5px 5px;">
 
 ```javascript
-const messages = await sock.newsletterFetchMessages('invite', '0029Vb7MpjO9RZAXcgJe0n0W', 10, '100', Date.now())
+const messages = await sock.newsletterFetchMessages('invite', '0029Vb7MpjO9RZAXcgJe0n0W', 10, '100')
+const messagesWithSince = await sock.newsletterFetchMessages('invite', '0029Vb7MpjO9RZAXcgJe0n0W', 10, '100', Date.now())
 console.log('Messages:', messages)
 ```
 
