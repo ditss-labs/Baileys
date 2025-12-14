@@ -830,27 +830,19 @@ Send a message with buttons:
 <div style="padding: 10px 15px; background: #f9f9f9; border: 1px solid #eee; border-top: none; border-radius: 0 0 5px 5px;">
 
 ```javascript
-await sock.sendMessage(jid, {
-    text: 'Choose an option:',
-    footer: 'Footer text',
-    buttons: [
-        {
-            buttonId: 'btn1',
-            buttonText: { displayText: 'Option 1' },
-            type: 1
-        },
-        {
-            buttonId: 'btn2',
-            buttonText: { displayText: 'Option 2' },
-            type: 1
-        },
-        {
-            buttonId: 'btn3',
-            buttonText: { displayText: 'Option 3' },
-            type: 1
-        }
-    ]
-})
+const buttons = [
+    { buttonId: 'id1', buttonText: { displayText: 'Button 1' }, type: 1 },
+    { buttonId: 'id2', buttonText: { displayText: 'Button 2' }, type: 1 }
+]
+
+const buttonMessage = {
+    text: "Hi it's button message",
+    footer: 'Hello World',
+    buttons,
+    headerType: 1
+}
+
+await sock.sendMessage(jid, buttonMessage, { quoted: null })
 ```
 
 </div>
@@ -865,23 +857,48 @@ Send buttons message with image header:
 <div style="padding: 10px 15px; background: #f9f9f9; border: 1px solid #eee; border-top: none; border-radius: 0 0 5px 5px;">
 
 ```javascript
-await sock.sendMessage(jid, {
-    image: { url: 'https://example.com/image.jpg' },
-    caption: 'Choose an option:',
-    footer: 'Footer text',
-    buttons: [
-        {
-            buttonId: 'btn1',
-            buttonText: { displayText: 'Option 1' },
-            type: 1
-        },
-        {
-            buttonId: 'btn2',
-            buttonText: { displayText: 'Option 2' },
-            type: 1
-        }
-    ]
-})
+const buttons = [
+    { buttonId: 'id1', buttonText: { displayText: 'Button 1' }, type: 1 },
+    { buttonId: 'id2', buttonText: { displayText: 'Button 2' }, type: 1 }
+]
+
+const buttonMessage = {
+    image: { url: "https://example.com/abcd.jpg" },
+    caption: "Hi it's button message with image",
+    footer: 'Hello World',
+    buttons,
+    headerType: 1
+}
+
+await sock.sendMessage(jid, buttonMessage, { quoted: null })
+```
+
+</div>
+</details>
+
+### Buttons Message with Video
+
+Send buttons message with video header:
+
+<details>
+<summary style="font-weight: bold; cursor: pointer; padding: 8px; border-bottom: 1px solid #eee; margin-bottom: 5px;">Show Example</summary>
+<div style="padding: 10px 15px; background: #f9f9f9; border: 1px solid #eee; border-top: none; border-radius: 0 0 5px 5px;">
+
+```javascript
+const buttons = [
+    { buttonId: 'id1', buttonText: { displayText: 'Button 1' }, type: 1 },
+    { buttonId: 'id2', buttonText: { displayText: 'Button 2' }, type: 1 }
+]
+
+const buttonMessage = {
+    video: { url: "https://example.com/abcd.mp4" },
+    caption: "Hi it's button message with video",
+    footer: 'Hello World',
+    buttons,
+    headerType: 1
+}
+
+await sock.sendMessage(jid, buttonMessage, { quoted: null })
 ```
 
 </div>
