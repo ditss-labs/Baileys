@@ -749,6 +749,160 @@ await sock.sendMessage(
 </div>
 </details>
 
+### Newsletter Subscribers
+
+Get list of subscribers for a newsletter:
+
+```javascript
+const subscribers = await sock.newsletterSubscribers('120363423175289826@newsletter')
+console.log('Subscribers:', subscribers)
+```
+
+### Newsletter Fetch Messages
+
+Fetch messages from a newsletter:
+
+```javascript
+const messages = await sock.newsletterFetchMessages('invite', '0029Vb7MpjO9RZAXcgJe0n0W', 10, '100')
+console.log('Messages:', messages)
+```
+
+### Newsletter Fetch Updates
+
+Fetch updates from a newsletter:
+
+```javascript
+const updates = await sock.newsletterFetchUpdates('120363423175289826@newsletter', 10, '100', '0')
+console.log('Updates:', updates)
+```
+
+### Newsletter React Message
+
+React to a newsletter message:
+
+```javascript
+await sock.newsletterReactMessage('120363423175289826@newsletter', '123456789', '👍')
+```
+
+### Buttons Message
+
+Send a message with buttons:
+
+```javascript
+await sock.sendMessage(jid, {
+    text: 'Choose an option:',
+    footer: 'Footer text',
+    buttons: [
+        {
+            buttonId: 'btn1',
+            buttonText: { displayText: 'Option 1' },
+            type: 1
+        },
+        {
+            buttonId: 'btn2',
+            buttonText: { displayText: 'Option 2' },
+            type: 1
+        },
+        {
+            buttonId: 'btn3',
+            buttonText: { displayText: 'Option 3' },
+            type: 1
+        }
+    ]
+})
+```
+
+### Buttons Message with Media
+
+Send buttons message with image header:
+
+```javascript
+await sock.sendMessage(jid, {
+    image: { url: 'https://example.com/image.jpg' },
+    caption: 'Choose an option:',
+    footer: 'Footer text',
+    buttons: [
+        {
+            buttonId: 'btn1',
+            buttonText: { displayText: 'Option 1' },
+            type: 1
+        },
+        {
+            buttonId: 'btn2',
+            buttonText: { displayText: 'Option 2' },
+            type: 1
+        }
+    ]
+})
+```
+
+### Product Message with Buttons
+
+Send product message with interactive buttons:
+
+```javascript
+await sock.sendMessage(jid, {
+    product: {
+        productImage: { url: 'https://example.com/product.jpg' },
+        productId: '123456',
+        title: 'Product Name',
+        description: 'Product Description',
+        currencyCode: 'IDR',
+        priceAmount1000: 100000,
+        retailerId: 'Retailer Name',
+        url: 'https://example.com/product',
+        productImageCount: 1
+    },
+    businessOwnerJid: '6281234567890@s.whatsapp.net',
+    caption: 'Check out this product!',
+    title: 'Product Title',
+    subtitle: 'Product Subtitle',
+    footer: 'Footer',
+    interactiveButtons: [
+        {
+            name: 'quick_reply',
+            buttonParamsJson: JSON.stringify({
+                display_text: 'Buy Now',
+                id: 'buy_now'
+            })
+        }
+    ],
+    hasMediaAttachment: true
+})
+```
+
+### Request Payment Message
+
+Send a payment request:
+
+```javascript
+await sock.sendMessage(jid, {
+    requestPayment: {
+        amount: 100000,
+        currency: 'IDR',
+        from: '6281234567890@s.whatsapp.net',
+        expiry: Date.now() + 3600000,
+        note: 'Payment for product',
+        sticker: { url: 'https://example.com/sticker.webp' }
+    }
+})
+```
+
+### Event Message
+
+Send an event message:
+
+```javascript
+await sock.sendMessage(jid, {
+    event: {
+        name: 'Event Name',
+        locationName: 'Event Location',
+        startTime: Math.floor(Date.now() / 1000),
+        messageSecret: crypto.randomBytes(32)
+    }
+})
+```
+
 For more examples and detailed documentation, see the full documentation in the repository.
 
 ## License
