@@ -903,6 +903,342 @@ await sock.sendMessage(jid, {
 })
 ```
 
+### Album Message
+
+Send multiple images as an album:
+
+<details>
+<summary style="font-weight: bold; cursor: pointer; padding: 8px; border-bottom: 1px solid #eee; margin-bottom: 5px;">Show Example</summary>
+<div style="padding: 10px 15px; background: #f9f9f9; border: 1px solid #eee; border-top: none; border-radius: 0 0 5px 5px;">
+
+```javascript
+await sock.sendMessage(jid, {
+    album: [
+        { image: { url: 'https://example.com/image1.jpg' }, caption: 'Image 1' },
+        { image: { url: 'https://example.com/image2.jpg' }, caption: 'Image 2' },
+        { image: { url: 'https://example.com/image3.jpg' }, caption: 'Image 3' }
+    ]
+}, { quoted: m })
+```
+
+</div>
+</details>
+
+### Poll Result Message
+
+Display poll results with vote counts:
+
+<details>
+<summary style="font-weight: bold; cursor: pointer; padding: 8px; border-bottom: 1px solid #eee; margin-bottom: 5px;">Show Example</summary>
+<div style="padding: 10px 15px; background: #f9f9f9; border: 1px solid #eee; border-top: none; border-radius: 0 0 5px 5px;">
+
+```javascript
+await sock.sendMessage(jid, {
+    pollResult: {
+        name: 'Poll Question',
+        values: [
+            ['Option 1', '100'],
+            ['Option 2', '50'],
+            ['Option 3', '25']
+        ]
+    }
+}, { quoted: m })
+```
+
+</div>
+</details>
+
+### Interactive Message with Native Flow
+
+Send interactive messages with advanced native flow features:
+
+<details>
+<summary style="font-weight: bold; cursor: pointer; padding: 8px; border-bottom: 1px solid #eee; margin-bottom: 5px;">Show Example</summary>
+<div style="padding: 10px 15px; background: #f9f9f9; border: 1px solid #eee; border-top: none; border-radius: 0 0 5px 5px;">
+
+```javascript
+await sock.sendMessage(jid, {
+    text: 'Interactive Message with Native Flow',
+    title: 'Title',
+    subtitle: 'Subtitle',
+    footer: 'Footer',
+    interactiveButtons: [
+        {
+            name: 'single_select',
+            buttonParamsJson: JSON.stringify({
+                title: 'Select Option',
+                sections: [
+                    {
+                        title: 'Section 1',
+                        highlight_label: 'Highlight',
+                        rows: [
+                            {
+                                header: 'Header 1',
+                                title: 'Title 1',
+                                description: 'Description 1',
+                                id: 'option_1'
+                            },
+                            {
+                                header: 'Header 2',
+                                title: 'Title 2',
+                                description: 'Description 2',
+                                id: 'option_2'
+                            }
+                        ]
+                    }
+                ]
+            })
+        },
+        {
+            name: 'cta_copy',
+            buttonParamsJson: JSON.stringify({
+                display_text: 'Copy Code',
+                id: 'copy_123',
+                copy_code: 'ABC123XYZ'
+            })
+        },
+        {
+            name: 'cta_url',
+            buttonParamsJson: JSON.stringify({
+                display_text: 'Open Link',
+                url: 'https://example.com',
+                merchant_url: 'https://example.com'
+            })
+        }
+    ]
+}, { quoted: m })
+```
+
+</div>
+</details>
+
+### Interactive Message with Limited Time Offer
+
+Send interactive message with limited time offer feature:
+
+<details>
+<summary style="font-weight: bold; cursor: pointer; padding: 8px; border-bottom: 1px solid #eee; margin-bottom: 5px;">Show Example</summary>
+<div style="padding: 10px 15px; background: #f9f9f9; border: 1px solid #eee; border-top: none; border-radius: 0 0 5px 5px;">
+
+```javascript
+await sock.sendMessage(jid, {
+    text: 'Limited Time Offer!',
+    title: 'Special Offer',
+    subtitle: 'Get 50% off',
+    footer: 'Valid until tomorrow',
+    interactiveButtons: [
+        {
+            name: 'quick_reply',
+            buttonParamsJson: JSON.stringify({
+                display_text: 'Claim Now',
+                id: 'claim_offer'
+            })
+        }
+    ],
+    contextInfo: {
+        externalAdReply: {
+            title: 'Limited Offer',
+            body: '50% Discount',
+            thumbnailUrl: 'https://example.com/thumb.jpg',
+            sourceUrl: 'https://example.com',
+            mediaType: 1,
+            renderLargerThumbnail: true
+        }
+    }
+}, { quoted: m })
+```
+
+</div>
+</details>
+
+### Send Message with Progress Bar
+
+Send message with progress indicator:
+
+<details>
+<summary style="font-weight: bold; cursor: pointer; padding: 8px; border-bottom: 1px solid #eee; margin-bottom: 5px;">Show Example</summary>
+<div style="padding: 10px 15px; background: #f9f9f9; border: 1px solid #eee; border-top: none; border-radius: 0 0 5px 5px;">
+
+```javascript
+await sock.sendMessage(jid, {
+    text: 'Processing...\n[████████░░] 80%',
+    footer: 'Please wait'
+}, { quoted: m })
+```
+
+</div>
+</details>
+
+### Send Message with Custom Thumbnail
+
+Send message with custom thumbnail and link preview:
+
+<details>
+<summary style="font-weight: bold; cursor: pointer; padding: 8px; border-bottom: 1px solid #eee; margin-bottom: 5px;">Show Example</summary>
+<div style="padding: 10px 15px; background: #f9f9f9; border: 1px solid #eee; border-top: none; border-radius: 0 0 5px 5px;">
+
+```javascript
+await sock.sendMessage(jid, {
+    text: 'Check out this link!',
+    contextInfo: {
+        externalAdReply: {
+            title: 'Website Title',
+            body: 'Website Description',
+            thumbnailUrl: 'https://example.com/thumbnail.jpg',
+            sourceUrl: 'https://example.com',
+            mediaType: 1,
+            renderLargerThumbnail: true
+        }
+    }
+}, { quoted: m })
+```
+
+</div>
+</details>
+
+### Send PTV (Picture in Picture Video)
+
+Send picture-in-picture video message:
+
+<details>
+<summary style="font-weight: bold; cursor: pointer; padding: 8px; border-bottom: 1px solid #eee; margin-bottom: 5px;">Show Example</summary>
+<div style="padding: 10px 15px; background: #f9f9f9; border: 1px solid #eee; border-top: none; border-radius: 0 0 5px 5px;">
+
+```javascript
+await sock.sendMessage(jid, {
+    ptv: { url: 'https://example.com/video.mp4' },
+    caption: 'PTV Message'
+}, { quoted: m })
+```
+
+</div>
+</details>
+
+### Send Contact Message
+
+Send contact card:
+
+<details>
+<summary style="font-weight: bold; cursor: pointer; padding: 8px; border-bottom: 1px solid #eee; margin-bottom: 5px;">Show Example</summary>
+<div style="padding: 10px 15px; background: #f9f9f9; border: 1px solid #eee; border-top: none; border-radius: 0 0 5px 5px;">
+
+```javascript
+await sock.sendMessage(jid, {
+    contacts: {
+        displayName: 'John Doe',
+        contacts: [
+            {
+                displayName: 'John Doe',
+                vcard: `BEGIN:VCARD
+VERSION:3.0
+FN:John Doe
+TEL;type=CELL;type=VOICE:+1234567890
+END:VCARD`
+            }
+        ]
+    }
+}, { quoted: m })
+```
+
+</div>
+</details>
+
+### Send Location Message
+
+Send location with coordinates:
+
+<details>
+<summary style="font-weight: bold; cursor: pointer; padding: 8px; border-bottom: 1px solid #eee; margin-bottom: 5px;">Show Example</summary>
+<div style="padding: 10px 15px; background: #f9f9f9; border: 1px solid #eee; border-top: none; border-radius: 0 0 5px 5px;">
+
+```javascript
+await sock.sendMessage(jid, {
+    location: {
+        degreesLatitude: -6.2088,
+        degreesLongitude: 106.8456,
+        name: 'Jakarta, Indonesia'
+    }
+}, { quoted: m })
+```
+
+</div>
+</details>
+
+### Send Sticker Message
+
+Send sticker:
+
+<details>
+<summary style="font-weight: bold; cursor: pointer; padding: 8px; border-bottom: 1px solid #eee; margin-bottom: 5px;">Show Example</summary>
+<div style="padding: 10px 15px; background: #f9f9f9; border: 1px solid #eee; border-top: none; border-radius: 0 0 5px 5px;">
+
+```javascript
+await sock.sendMessage(jid, {
+    sticker: { url: 'https://example.com/sticker.webp' }
+}, { quoted: m })
+```
+
+</div>
+</details>
+
+### Send Audio Message
+
+Send audio message:
+
+<details>
+<summary style="font-weight: bold; cursor: pointer; padding: 8px; border-bottom: 1px solid #eee; margin-bottom: 5px;">Show Example</summary>
+<div style="padding: 10px 15px; background: #f9f9f9; border: 1px solid #eee; border-top: none; border-radius: 0 0 5px 5px;">
+
+```javascript
+await sock.sendMessage(jid, {
+    audio: { url: 'https://example.com/audio.mp3' },
+    mimetype: 'audio/mp4',
+    ptt: false
+}, { quoted: m })
+```
+
+</div>
+</details>
+
+### Send Document Message
+
+Send document file:
+
+<details>
+<summary style="font-weight: bold; cursor: pointer; padding: 8px; border-bottom: 1px solid #eee; margin-bottom: 5px;">Show Example</summary>
+<div style="padding: 10px 15px; background: #f9f9f9; border: 1px solid #eee; border-top: none; border-radius: 0 0 5px 5px;">
+
+```javascript
+await sock.sendMessage(jid, {
+    document: { url: 'https://example.com/document.pdf' },
+    mimetype: 'application/pdf',
+    fileName: 'document.pdf',
+    caption: 'Document file'
+}, { quoted: m })
+```
+
+</div>
+</details>
+
+### Send View Once Message
+
+Send view once (disappearing) message:
+
+<details>
+<summary style="font-weight: bold; cursor: pointer; padding: 8px; border-bottom: 1px solid #eee; margin-bottom: 5px;">Show Example</summary>
+<div style="padding: 10px 15px; background: #f9f9f9; border: 1px solid #eee; border-top: none; border-radius: 0 0 5px 5px;">
+
+```javascript
+await sock.sendMessage(jid, {
+    viewOnce: true,
+    image: { url: 'https://example.com/image.jpg' },
+    caption: 'This message will disappear after viewing'
+}, { quoted: m })
+```
+
+</div>
+</details>
+
 For more examples and detailed documentation, see the full documentation in the repository.
 
 ## License
