@@ -676,29 +676,6 @@ await sock.sendMessage(
 
 For more examples and detailed documentation, see the full documentation in the repository.
 
-## Features Added from Kiuur Baileys
-
-ye-bail includes enhanced features from [kiuur/baileys](https://github.com/kiuur/baileys):
-
-### Newsletter/Channel Support
-- `newsletterId(url)` - Get newsletter ID from channel URL
-- `newsletterFetchAllSubscribe()` - Fetch all subscribed newsletters
-- `newsletterMetadata(type, key, role)` - Get newsletter metadata
-- `newsletterCreate(name, description, reaction_codes)` - Create newsletter
-- `newsletterFollow/Unfollow/Mute/Unmute` - Manage newsletter subscriptions
-- `newsletterReactMessage(jid, serverId, code)` - React to newsletter messages
-- `newsletterFetchMessages/FetchUpdates` - Fetch newsletter messages and updates
-
-### Account Checking
-- `checkWhatsApp(jid)` - Check if WhatsApp account is banned or needs official WhatsApp
-
-### Group Status Message
-- `sendMessage(jid, { groupStatusMessage: { text/image/video } })` - Send group status message (group story)
-
-### Interactive Buttons
-- Full support for interactive buttons with `buttons-warpper`
-- Support for various button types: quick_reply, cta_url, cta_copy, cta_call, etc.
-
 ## License
 
 Distributed under the GPL-3.0 License. See [LICENSE](LICENSE) for more information.
