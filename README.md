@@ -19,7 +19,11 @@ npm i github:yemobyte/ye-bail
 
 ```bash
 npm i github:yemobyte/ye-bail
-# or
+```
+
+or
+
+```bash
 yarn add github:yemobyte/ye-bail
 ```
 
@@ -229,7 +233,7 @@ connect()
 ### Newsletter Functions
 
 ```javascript
-const newsletterJid = '0029Vb7MpjO9RZAXcgJe0n0W@newsletter'
+const newsletterJid = '120363423175289826@newsletter'
 
 await sock.newsletterFollow(newsletterJid)
 await sock.newsletterUnfollow(newsletterJid)
@@ -247,6 +251,11 @@ await sock.newsletterReactionMode(newsletterJid, 'ALL')
 
 const messages = await sock.newsletterFetchMessages('jid', newsletterJid, 10, 100)
 const updates = await sock.newsletterFetchUpdates(newsletterJid, 10, 100, 0)
+
+await sock.newsletterPromote(newsletterJid, 'user_lid')
+await sock.newsletterDemote(newsletterJid, 'user_lid')
+const adminCount = await sock.newsletterAdminCount(newsletterJid)
+const subscribers = await sock.newsletterSubscribers(newsletterJid)
 
 await sock.newsletterReactMessage(newsletterJid, 'server_id', '👍')
 await sock.newsletterDelete(newsletterJid)
@@ -329,23 +338,20 @@ Send messages with interactive buttons for quick replies:
 
 ```javascript
 await sock.sendMessage(jid, {
-    buttonsMessage: {
-        contentText: 'Choose an option:',
-        footerText: 'Footer text here',
-        headerType: 1,
-        buttons: [
-            {
-                buttonId: 'id1',
-                buttonText: { displayText: 'Button 1' },
-                type: 1
-            },
-            {
-                buttonId: 'id2',
-                buttonText: { displayText: 'Button 2' },
-                type: 1
-            }
-        ]
-    }
+    text: 'Choose an option:',
+    footer: 'Footer text here',
+    buttons: [
+        {
+            buttonId: 'id1',
+            buttonText: { displayText: 'Button 1' },
+            type: 1
+        },
+        {
+            buttonId: 'id2',
+            buttonText: { displayText: 'Button 2' },
+            type: 1
+        }
+    ]
 })
 ```
 
@@ -774,7 +780,7 @@ Fetch messages from a newsletter:
 <div style="padding: 10px 15px; background: #f9f9f9; border: 1px solid #eee; border-top: none; border-radius: 0 0 5px 5px;">
 
 ```javascript
-const messages = await sock.newsletterFetchMessages('invite', '0029Vb7MpjO9RZAXcgJe0n0W', 10, '100')
+const messages = await sock.newsletterFetchMessages('invite', '0029Vb7MpjO9RZAXcgJe0n0W', 10, '100', Date.now())
 console.log('Messages:', messages)
 ```
 
@@ -953,6 +959,8 @@ Send an event message:
 <div style="padding: 10px 15px; background: #f9f9f9; border: 1px solid #eee; border-top: none; border-radius: 0 0 5px 5px;">
 
 ```javascript
+const crypto = require('crypto')
+
 await sock.sendMessage(jid, {
     event: {
         name: 'Event Name',
