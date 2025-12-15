@@ -127,6 +127,23 @@ if (!sock.authState.creds.registered) {
 }
 ```
 
+### Custom Pairing Code
+
+```javascript
+const { default: makeWASocket } = require("ye-bail")
+
+const sock = makeWASocket({
+    printQRInTerminal: false
+})
+
+if (!sock.authState.creds.registered) {
+    const phoneNumber = '6299999999999'
+    const customCode = 'YEMOBYTE'
+    const pairingCode = await sock.requestPairingCode(phoneNumber, customCode)
+    console.log('Custom Pairing Code:', pairingCode)
+}
+```
+
 ### Receive Full History
 
 1. Set `syncFullHistory` to `true`.
