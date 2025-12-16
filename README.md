@@ -2,8 +2,6 @@
 
 A comprehensive WhatsApp Web automation library built on TypeScript, providing a complete API for interacting with WhatsApp Web through protocol bindings.
 
-This library is an advanced fork of Baileys, extending WhatsApp Web functionality with enhanced features, better stability, and modern development practices.
-
 ## Warning
 
 This project is not affiliated, associated, authorized, endorsed by, or in any way officially connected with WhatsApp or any of its subsidiaries. The official WhatsApp website is at whatsapp.com.
@@ -292,6 +290,41 @@ if (!sock.authState.creds.registered) {
 ```javascript
 const pairingCode = await sock.requestPairingCode('6299999999999', 'YEMOBYTE')
 console.log('Custom Pairing Code:', pairingCode)
+```
+
+### Phone Number Validation
+
+Phone numbers must start with a valid country code. The library validates against a list of supported country codes (MCC - Mobile Country Code).
+
+Supported country codes include:
+- Indonesia: `62`
+- United States: `1`
+- Brazil: `55`
+- United Kingdom: `44`
+- And 200+ more countries
+
+Example with validation:
+
+```javascript
+const sock = makeWASocket({
+    printQRInTerminal: false
+})
+
+try {
+    const code = await sock.requestPairingCode('6299999999999')
+    console.log('Pairing Code:', code)
+} catch (error) {
+    if (error.statusCode === 400) {
+        console.log('Invalid phone number. Must start with country code (e.g., 62xxx for Indonesia)')
+    }
+}
+```
+
+Invalid phone numbers that will throw errors:
+```javascript
+await sock.requestPairingCode('989999999999')
+await sock.requestPairingCode('08999999999')
+await sock.requestPairingCode('999999999')
 ```
 
 ### Receive Full History
@@ -1509,5 +1542,6 @@ Distributed under the GPL-3.0 License. See [LICENSE](LICENSE) for more informati
 
 ---
 
-Forked and modified by yemobyte.  
-ye-bail - Modern WhatsApp Web API
+## License
+
+Distributed under the GPL-3.0 License. See [LICENSE](LICENSE) for more information.
