@@ -1,7 +1,3 @@
-# ye-bail - WhatsApp Web API Library
-
-A comprehensive WhatsApp Web automation library built on TypeScript, providing a complete API for interacting with WhatsApp Web through protocol bindings.
-
 ## Warning
 
 This project is not affiliated, associated, authorized, endorsed by, or in any way officially connected with WhatsApp or any of its subsidiaries. The official WhatsApp website is at whatsapp.com.
