@@ -107,6 +107,7 @@ export namespace DEFAULT_CACHE_TTLS {
     let CALL_OFFER: number;
     let USER_DEVICES: number;
 }
+export const PHONENUMBER_MCC: Record<string, number>;
 declare namespace ___home_roy_ye_bail_lib_Defaults_index_ { }
 import libsignal_1 = require("../Signal/libsignal");
 export {};
