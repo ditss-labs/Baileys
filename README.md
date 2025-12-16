@@ -1539,9 +1539,3 @@ sock.ws.on('CB:ack', (node) => {
 ## License
 
 Distributed under the GPL-3.0 License. See [LICENSE](LICENSE) for more information.
-
----
-
-## License
-
-Distributed under the GPL-3.0 License. See [LICENSE](LICENSE) for more information.
