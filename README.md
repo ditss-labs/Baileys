@@ -11,14 +11,14 @@ Use wisely. Avoid spam. Do not use excessive automation.
 ### Stable Version
 
 ```bash
-npm install github:yemobyte/ye-bail
+npm install github:ditss-labs/Baileys 
 ```
 
 ### Edge Version
 
 ```bash
-npm install github:yemobyte/ye-bail
-yarn add github:yemobyte/ye-bail
+npm install github:ditss-labs/Baileys 
+yarn add github:ditss-labs/Baileys 
 ```
 
 ### Import in Code
