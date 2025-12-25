@@ -3,9 +3,9 @@
   "version": "0.4.5",
   "description": "WhatsApp Web API Library",
   "keywords": [],
-  "homepage": "https://github.com/yemobyte/ye-bail",
+  "homepage": "https://github.com/ditss-labs/Baileys",
   "repository": {
-    "url": "https://github.com/yemobyte/ye-bail"
+    "url": "https://github.com/ditss-labs/Baileys"
   },
   "license": "GPL-3.0",
   "author": "yemobyte",
@@ -50,7 +50,7 @@
     "fflate": "^0.8.1",
     "gradient-string": "^2.0.2",
     "libphonenumber-js": "^1.10.20",
-    "libsignal": "github:yemobyte/libsignal-node",
+    "libsignal": "github:ditss-labs/libsignal-node",
     "lodash": "^4.17.21",
     "music-metadata": "^7.12.3",
     "p-queue": "^9.0.0",
